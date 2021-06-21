@@ -6,9 +6,9 @@
 # Customize each tool. If analyses fail, try adjusting each option referencing the following example.
 linter:
 
-#   # FxCop example. See https://help.sider.review/tools/csharp/fxcop
-#   fxcop:
-#     root_dir: project/
+   # FxCop example. See https://help.sider.review/tools/csharp/fxcop
+   fxcop:
+     root_dir: /
 
 #   # Misspell example. See https://help.sider.review/tools/others/misspell
 #   misspell:
