@@ -1,4 +1,4 @@
 HackMe.NET
 
 
-![.NET](https://github.com/vNexifHackMe.NET/workflows/.NET/badge.svg)
+![.NET](https://github.com/vNexif/HackMe.NET/workflows/.NET/badge.svg)
