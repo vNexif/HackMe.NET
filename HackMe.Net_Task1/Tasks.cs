@@ -11,7 +11,7 @@ namespace HackMe.Net_Task1
 
         List<int> processList = new();
         public int KillListPID;
-        public int KillRealPID;
+        //public int KillRealPID;
 
         public void TaskInit()
         {
@@ -25,16 +25,11 @@ namespace HackMe.Net_Task1
 
                 KillMeT.Add(new Thread(() =>
                 {
-
-
-
                     for (var i = 0; i < 5; i++)
                     {
                         var RndPID = rnd.Next(2200, 2400);
                         processList.Add(RndPID);
                     }
-
-
                 }));
 
                 KillMeT.Add(new Thread(() =>
@@ -51,7 +46,6 @@ namespace HackMe.Net_Task1
                 Console.WriteLine(e);
                 throw;
             }
-
         }
 
 
@@ -68,11 +62,16 @@ namespace HackMe.Net_Task1
             }
         }
 
-        public void killTask(string PID)
+        public bool killTask(Int32 PID)
         {
             try
             {
+                if (PID == processList[KillListPID])
+                {
+                    return true;
+                }
 
+                return false;
             }
             catch (Exception e)
             {
