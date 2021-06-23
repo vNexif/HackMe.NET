@@ -31,12 +31,12 @@ namespace HackMe.Net_Task1
 
                 if (command == "help")
                 {
-
+                    tasks.help();
                 }
 
                 if (command == "?")
                 {
-
+                    tasks.help();
                 }
 
                 if (command == "ps")
