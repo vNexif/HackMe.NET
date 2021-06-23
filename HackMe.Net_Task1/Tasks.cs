@@ -1,8 +1,5 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Threading;
 
 
@@ -22,7 +19,7 @@ namespace HackMe.Net_Task1
             {
                 List<Thread> KillMeT = new();
                 Random rnd = new();
-                
+
                 KillListPID = rnd.Next(0, 5);
 
 
@@ -31,7 +28,7 @@ namespace HackMe.Net_Task1
 
 
 
-                    for (int i = 0; i < 5; i++)
+                    for (var i = 0; i < 5; i++)
                     {
                         var RndPID = rnd.Next(2200, 2400);
                         processList.Add(RndPID);
@@ -62,7 +59,7 @@ namespace HackMe.Net_Task1
         {
             try
             {
-                processList.ForEach(psl  => Console.WriteLine("PID: " + psl));
+                processList.ForEach(psl => Console.WriteLine("PID: " + psl));
             }
             catch (Exception e)
             {
@@ -83,5 +80,23 @@ namespace HackMe.Net_Task1
                 throw;
             }
         }
+
+        public void help()
+        {
+
+            try
+            {
+                Console.WriteLine("List of available commands:" +
+                                  "\n\nps - report a snapshot of the current processes\n" +
+                                  "kill - terminate a process\n" +
+                                  "exit - kill process that runs the game that you're actually playing");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+    }
     }
 }

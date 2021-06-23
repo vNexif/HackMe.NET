@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 
 namespace HackMe.Net_Task1
@@ -32,6 +28,16 @@ namespace HackMe.Net_Task1
                 {
                     returncode = 20;
                     break;
+                }
+
+                if (command == "help")
+                {
+
+                }
+
+                if (command == "?")
+                {
+
                 }
 
                 if (command == "ps")
