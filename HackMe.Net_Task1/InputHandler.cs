@@ -17,7 +17,6 @@ namespace HackMe.Net_Task1
             string compstring = $"kill";
             string command = Console.ReadLine();
 
-            Console.WriteLine(KillRealPID);
 
             while (command != "qqq")
             {
@@ -32,12 +31,12 @@ namespace HackMe.Net_Task1
 
                 if (command == "help")
                 {
-
+                    tasks.help();
                 }
 
                 if (command == "?")
                 {
-
+                    tasks.help();
                 }
 
                 if (command == "ps")
@@ -53,8 +52,17 @@ namespace HackMe.Net_Task1
 
                 else if (useKillRegex(command))
                 {
-                    returncode = 1;
-                    break;
+                    string[] subs = command.Split(" ");
+                    
+                    var res = Int32.Parse(subs[1]);
+
+                    if (tasks.killTask(res))
+                    {
+                        returncode = 1;
+                        break;
+                    }
+                    
+                    Console.WriteLine("Bledny PID :<");
                 }
 
 
