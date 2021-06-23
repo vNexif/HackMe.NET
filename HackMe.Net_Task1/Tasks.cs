@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Threading;
 
@@ -84,6 +84,19 @@ namespace HackMe.Net_Task1
         public void help()
         {
 
+            try
+            {
+                Console.WriteLine("List of available commands:" +
+                                  "\n\nps - report a snapshot of the current processes\n" +
+                                  "kill - terminate a process\n" +
+                                  "exit - kill process that runs the game that you're actually playing");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
+    }
     }
 }
