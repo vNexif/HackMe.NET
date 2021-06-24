@@ -20,7 +20,7 @@ namespace HackMe.NET
                 killMeThreads.Add(new Thread(() =>
                 {
                     var slotData = Base64Encode("Aby uruchomic drugie zadanie wpisz 'Oh My ZSH'");
-                    var threadId = Thread.CurrentThread.ManagedThreadId;
+                    //var threadId = Thread.CurrentThread.ManagedThreadId;
 
                     Thread.SetData(Thread.GetNamedDataSlot("Enc"),slotData);
 
@@ -37,15 +37,12 @@ namespace HackMe.NET
 
                     killMe.WaitForExit();
 
-                    Console.WriteLine(killMe.ExitCode);
-
                     if (killMe.ExitCode == 20)
                     {
                         Console.WriteLine((string)Thread.GetData(Thread.GetNamedDataSlot("Enc")));
                     }
                     else if (killMe.ExitCode == 1)
                     {
-                        Console.WriteLine("KillMe Solved :)");
                         Console.WriteLine(Base64Decode((string) Thread.GetData(Thread.GetNamedDataSlot("Enc"))));
                     }
                 }));

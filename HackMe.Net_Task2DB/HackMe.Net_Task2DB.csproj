@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <OutputPath>C:\Users\Nexif\source\repos\HackMe.NET\Debug\</OutputPath>
+    <OutputPath>C:\Users\MSI Alan\Source\Repos\HackMe.NET\debug\</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
