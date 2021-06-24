@@ -1,93 +1,94 @@
 ﻿using System;
 using System.Text.RegularExpressions;
-using HackMe.
+using System.Threading.Tasks;
+using HackMe.Net_Task2DB;
 
 namespace HackMe.Net_Task1
 {
-    class InputHandler : Tasks
+    class InputHandler : DB_task
     {
 
         public static int returncode = 0;
+        public static bool verify_con = false;
 
         public InputHandler()
         {
-
-            Tasks tasks = new();
-            tasks.TaskInit();
-
-            string compstring = $"kill";
             string command = Console.ReadLine();
-
 
             while (command != "qqq")
             {
                 command = Console.ReadLine();
 
-
-                if (command == "exit")
+                if (command == "show_servers")
                 {
-                    returncode = 20;
-                    break;
+                    LcDb_win serv_names = new();
+                    Task getPath = Task.Factory.StartNew((() => serv_names.LcDb_winT()));
+                    Task.WaitAll(getPath);
+                    Console.WriteLine(LcDb_win.localhost);
                 }
 
                 if (command == "help")
                 {
-                    tasks.help();
+                    help();
                 }
 
-                if (command == "?")
+                if (command == "connect")
                 {
-                    tasks.help();
-                }
-
-                if (command == "ps")
-                {
-                    Console.WriteLine("StartPs");
-                    tasks.psTask();
-                }
-
-                else if (!useKillRegex(command))
-                {
-                    Console.WriteLine("No chyba nie :v");
-                }
-
-                else if (useKillRegex(command))
-                {
-                    string[] subs = command.Split(" ");
-                    
-                    var res = Int32.Parse(subs[1]);
-
-                    if (tasks.killTask(res))
+                    Console.WriteLine("\nInput your localhost SQL server:");
+                    string check = Console.ReadLine();
+                    if (useConnectRegex(check))
                     {
-                        returncode = 1;
+                        if (check == LcDb_win.localhost)
+                        {
+                            verify_con = true;
+                            Console.WriteLine("\nConnected to database\n");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Bledna nazwa localhosta.");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Bledna nazwa localhosta.");
+                    }
+                }
+
+                if (command == "show_records" && verify_con)
+                {
+                    Task sh_rec = Task.Factory.StartNew(() => connect_to_db(LcDb_win.full_path));
+                    Task.WaitAll(sh_rec);
+                    Console.WriteLine(DB_task.data_db);
+                    Console.WriteLine("Name the method of encryption that has been used at line above:");
+                    string answer = Console.ReadLine();
+
+                    if (answer == "MD5" || answer == "md5" || answer == "mdfive")
+                    {
+                        Console.WriteLine("\n\n*** Ukonczyles gierke, gratki! ***\n\n");
                         break;
                     }
-                    
-                    Console.WriteLine("Bledny PID :<");
+                    else
+                    {
+                        Console.WriteLine("Unfortunately not :/");
+                    }
+
                 }
-
-
 
             }
         }
 
 
-        public static bool useKillRegex(String input)
+        public static bool useConnectRegex(String input)
         {
-            Regex kregex = new Regex("^(Kill) +[\\d]{4}$", RegexOptions.IgnoreCase);
+            Regex con_regex = new Regex("^[A-Z,a-z,0-9]*$", RegexOptions.IgnoreCase);
 
-            if (kregex.IsMatch(input))
+            if (con_regex.IsMatch(input))
             {
-                Regex pidregex = new Regex(@"[\d]");
-
-                string[] sub = input.Split(' ');
-
-                if (pidregex.IsMatch(sub[1]))
-                {
-                    return true;
-                }
+                return true;
             }
+
             return false;
+
         }
     }
 }
