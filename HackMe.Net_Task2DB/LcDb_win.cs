@@ -5,6 +5,8 @@ namespace HackMe.Net_Task2DB
 {
     class LcDb_win
     {
+        public static string full_path = "";
+
         static void list_local_db()
         {
             {
@@ -19,7 +21,7 @@ namespace HackMe.Net_Task2DB
                     {
                         foreach (var instanceName in instanceKey.GetValueNames())
                         {
-                            Console.WriteLine(Environment.MachineName + @"\" + instanceName);
+                            full_path = Environment.MachineName + @"\" + instanceName;
                         }
                     }
                 }
