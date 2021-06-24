@@ -27,7 +27,19 @@ namespace HackMe.Net_Task2DB
             connectionPath = @"Data Source=" + data_source + ";Initial Catalog=" + database_name +
                              ";Integrated Security=True;MultipleActiveResultSets=True";
             connect = new(connectionPath);
-            //connect.Open();
+            connect.Open();
+
+            SqlCommand cmd;
+            SqlDataReader dtRead;
+            string sql = "SELECT * FROM hashing";
+
+            cmd = new SqlCommand(sql, connect);
+            dtRead = cmd.ExecuteReader();
+
+
+            dtRead.Close();
+            cmd.Dispose();
+            connect.Close();
         }
     }
 }
