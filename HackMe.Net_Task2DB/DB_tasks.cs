@@ -8,6 +8,7 @@ namespace HackMe.Net_Task2DB
 {
     class DB_task
     {
+        public static string data_db = "";
 
         public void connect_to_db(string database)
         {
@@ -27,7 +28,20 @@ namespace HackMe.Net_Task2DB
             connectionPath = @"Data Source=" + data_source + ";Initial Catalog=" + database_name +
                              ";Integrated Security=True;MultipleActiveResultSets=True";
             connect = new(connectionPath);
-            //connect.Open();
+            connect.Open();
+
+            SqlCommand cmd;
+            SqlDataReader dtRead;
+            string sql = "SELECT * FROM hashing";
+
+            cmd = new SqlCommand(sql, connect);
+            dtRead = cmd.ExecuteReader();
+
+            data_db = data_db + dtRead.GetValue(0);
+
+            dtRead.Close();
+            cmd.Dispose();
+            connect.Close();
         }
     }
 }
