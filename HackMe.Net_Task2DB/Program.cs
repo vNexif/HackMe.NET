@@ -1,12 +1,15 @@
 ﻿using System;
+using HackMe.Net_Task1;
 
 namespace HackMe.Net_Task2DB
 {
     class Program
     {
-        static void Main(string[] args)
+        public static int returncode = 0;
+        static int Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            InputHandler IH = new();
+            return returncode;
         }
     }
 }

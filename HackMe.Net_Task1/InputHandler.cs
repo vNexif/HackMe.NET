@@ -14,7 +14,6 @@ namespace HackMe.Net_Task1
             Tasks tasks = new();
             tasks.TaskInit();
 
-            string compstring = $"kill";
             string command = Console.ReadLine();
 
 
@@ -41,13 +40,7 @@ namespace HackMe.Net_Task1
 
                 if (command == "ps")
                 {
-                    Console.WriteLine("StartPs");
                     tasks.psTask();
-                }
-
-                else if (!useKillRegex(command))
-                {
-                    Console.WriteLine("No chyba nie :v");
                 }
 
                 else if (useKillRegex(command))

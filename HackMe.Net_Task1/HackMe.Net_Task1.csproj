@@ -6,11 +6,15 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <OutputPath>C:\Users\Nexif\source\repos\HackMe.NET\Debug\</OutputPath>
+    <OutputPath>C:\Users\MSI Alan\Source\Repos\HackMe.NET\debug\</OutputPath>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <OutputPath>C:\Users\Nexif\source\repos\HackMe.NET\Release\</OutputPath>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HackMe.Net_Task2DB\HackMe.Net_Task2DB.csproj" />
+  </ItemGroup>
 
 </Project>

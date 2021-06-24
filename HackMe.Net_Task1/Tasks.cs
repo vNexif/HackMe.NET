@@ -35,8 +35,10 @@ namespace HackMe.Net_Task1
                 KillMeT.Add(new Thread(() =>
                 {
                     Console.WriteLine("Task Info:");
-                    Console.WriteLine("Find the {0} ", Encipher(LetterNumbersMap(processList[KillListPID]), 3));
+                    Console.WriteLine("Find the {0} process and KILL IT. ", Encipher(LetterNumbersMap(processList[KillListPID]), 3));
                 }));
+
+
 
                 KillMeT[0].Start();
                 KillMeT[1].Start();
