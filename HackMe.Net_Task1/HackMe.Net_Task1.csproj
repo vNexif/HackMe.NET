@@ -13,4 +13,8 @@
     <OutputPath>C:\Users\Nexif\source\repos\HackMe.NET\Release\</OutputPath>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\HackMe.Net_Task2DB\HackMe.Net_Task2DB.csproj" />
+  </ItemGroup>
+
 </Project>
