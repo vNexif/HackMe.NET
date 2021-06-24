@@ -8,6 +8,7 @@ namespace HackMe.Net_Task2DB
 {
     class DB_task
     {
+        public static string data_db = "";
 
         public void connect_to_db(string database)
         {
@@ -36,6 +37,7 @@ namespace HackMe.Net_Task2DB
             cmd = new SqlCommand(sql, connect);
             dtRead = cmd.ExecuteReader();
 
+            data_db = data_db + dtRead.GetValue(0);
 
             dtRead.Close();
             cmd.Dispose();
