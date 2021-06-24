@@ -4,9 +4,16 @@ namespace HackMe.Net_Task2DB
 {
     class Program
     {
-        static void Main(string[] args)
+        public static int returncode = 1;
+        static int Main(string[] args)
         {
+            
+            
+
             Console.WriteLine("Hello World!");
+
+
+            return returncode;
         }
     }
 }
